@@ -1,6 +1,7 @@
 # SE Lab 1 - Requirements Engineering & UML Use-Case Modelling
 
-**Diya R Gowda | PES1UG24CS159 | Section C | Software Engineering (UE24CS341A)**
+**Name: Diya R Gowda | Section: "C" | SRN: PES1UG24CS159**
+Software Engineering (UE24CS341A), Semester 5
 Problem Statement #31 - Multi-Vendor Artisan E-Commerce Marketplace
 
 ## Files
@@ -12,6 +13,5 @@ Problem Statement #31 - Multi-Vendor Artisan E-Commerce Marketplace
 | `UseCase_Flow_Specification.docx` | One-page use-case flow for UC-05 (Word) |
 | `UseCase_Diagram.drawio` | Editable draw.io source for the use-case diagram |
 | `Checkout_Flowchart.drawio` | Editable draw.io source for the checkout flowchart |
-| `UseCase_Diagram.svg` / `Checkout_Flowchart.svg` | Exported images of the two diagrams |
 
 The two `.drawio` files open at [app.diagrams.net](https://app.diagrams.net) (File > Open).
