@@ -14,4 +14,4 @@ Problem Statement #31 - Multi-Vendor Artisan E-Commerce Marketplace
 | `UseCase_Diagram.drawio` | Editable draw.io source for the use-case diagram |
 | `Checkout_Flowchart.drawio` | Editable draw.io source for the checkout flowchart |
 
-The two `.drawio` files open at [app.diagrams.net](https://app.diagrams.net) (File > Open).
+
