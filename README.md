@@ -46,6 +46,11 @@ This lab is a Pygame-based Galaga-style game project where debugging, AI-assiste
 
 See: [LAB4/README.md](./LAB4/README.md)
 
+### LAB 5
+This lab is a static code analysis project where Pylint, Bandit and Flake8 were used on a Python event manager script to find, document and fix quality, security and style issues, raising the Pylint score from 4.64 to 10.00.
+
+See: [LAB5/](./LAB5)
+
 ## Notes
 
 The repository is organized by lab number, making it easy to review the work completed during each stage of the course.
