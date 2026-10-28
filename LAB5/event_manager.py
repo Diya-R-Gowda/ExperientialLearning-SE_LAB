@@ -4,9 +4,10 @@ Creates events with a venue and capacity, registers guests until an event is
 full, reports seats left, picks a lucky-draw winner, labels events as upcoming
 or completed, and saves everything to a file.
 """
-import os
-import pickle
-import random
+import json
+import re
+import secrets
+import subprocess  # nosec B404 (fixed argument list, no shell)
 from datetime import date
 
 events = {}
@@ -54,22 +55,25 @@ def guest_report(event_name, sort_order="asc"):
     return ", ".join(names)
 
 
-def save_events(file_name="events.pkl"):
-    """Save all events to a file."""
-    with open(file_name, "wb") as file:
-        pickle.dump(events, file)
+def save_events(file_name="events.json"):
+    """Save all events to a JSON file."""
+    with open(file_name, "w", encoding="utf-8") as file:
+        json.dump(events, file, indent=2)
 
 
-def load_events(file_name="events.pkl"):
-    """Load events from a file and return them."""
-    with open(file_name, "rb") as file:
-        return pickle.load(file)
+def load_events(file_name="events.json"):
+    """Load events from a JSON file and return them."""
+    with open(file_name, "r", encoding="utf-8") as file:
+        return json.load(file)
 
 
 def print_badges(event_name):
     """Send the badge file for an event to the printer."""
     # Helper kept for the lab: not called by the demo
-    os.system("lp badges_" + event_name + ".txt")
+    if not re.fullmatch(r"[A-Za-z0-9_]+", event_name):
+        raise ValueError("Invalid event name for a badge file")
+    subprocess.run(["lp", "badges_" + event_name + ".txt"],  # nosec B603 B607
+                   check=True)
 
 
 def main():
@@ -86,7 +90,7 @@ def main():
     print("Tech Meetup guests:", guest_report("Tech Meetup", "asc"))
     print("Tech Meetup is", event_status(date(2099, 1, 15)))
     print("Alumni Dinner is", event_status(date(2020, 5, 1)))
-    winner = random.choice(events["Tech Meetup"]["guests"])
+    winner = secrets.choice(events["Tech Meetup"]["guests"])
     print("Lucky draw winner:", winner)
     save_events()
     restored = load_events() # reload to confirm the save worked
